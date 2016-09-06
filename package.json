@@ -1,0 +1,17 @@
+{
+  "name": "poursafe_1417_0815",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "curlrequest": "^0.5.7",
+    "express": "^4.14.0",
+    "pg-promise": "^5.3.1"
+  }
+}

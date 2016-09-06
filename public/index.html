@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
+    <title>Poursafe</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css" />
+    <!-- endbower -->
+    <!-- styles for ng-typeahead -->
+    <link rel="stylesheet" href="app/styles/ng-typeahead.css" />
+    <!-- api for google places w/key-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-nVLaBK68AC-uUM0MC5-VhpjU4QfBfS0&libraries=places"></script>
+    <!-- added ajax call for google places -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <!-- included script for ngautocomplete for google places -->
+    <script src="app/ngAutoComplete/ngAutocomplete.js"></script>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/ng-typeahead.css">
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p class="theTitle">TARGET<span class="orangeText">SAFE</span></p>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-3">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="formPage" ui-sref="home">Record Entry Form</a></li>
+                </ul>
+                <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" />
+                        </div>
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </form>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- adding ui view directive to my body for the two states -->
+        <div ui-view></div>
+        <!-- /input-group -->
+        <!-- bower:js -->
+        <!-- <script src="bower_components/angular/angular.js"></script> -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/toastr/toastr.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+        <!-- endbower -->
+        <!-- inject:js -->
+        <script src="/app/app.js"></script>
+        <script src="/app/main.controller.js"></script>
+        <script src="/app/main.factory.js"></script>
+        <script src="/app/ngAutoComplete/ngAutocomplete.js"></script>
+        <!-- endinject -->
+</body>
+
+</html>

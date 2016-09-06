@@ -1,0 +1,47 @@
+label {
+	text-align: center;
+}
+
+.title {
+	text-align: center;
+}
+
+#button1 {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 40px;
+
+}
+#insidebutton {
+	margin: 20px;
+	size: 20px;
+}
+
+
+.theTitle {
+	
+	padding-top: 30px;
+	text-align: center;
+	font-family: Arial;
+	color: white;
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 35.8px;
+
+}
+
+.orangeText
+{
+    color: orange;
+}
+
+
+
+
+
+
+
+
+

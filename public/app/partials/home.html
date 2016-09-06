@@ -1,0 +1,311 @@
+<!--POLICE ID DROPDOWN-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Police Department</label>
+            <!-- using ngoptions for increased render speeds and reduced memeory consumption-->
+            <select class="form-control" ng-options="data.police_dept_id as data.police_dept_name for data in vm.police_dept_id" ng-model="newEntry.police_dept_id"></select>
+        </div>
+    </div>
+</div>
+<!--Header for Form  -->
+<div class="container">
+    <div class="title panel-group">
+        <div>
+            <h2>Police Department Record Entry Form</h2>
+        </div>
+    </div>
+</div>
+<!--ARREST BOXES-->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">ARREST</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4 col-lg-5">
+                    <div class="form-group">
+                        <label>Arrest Date</label>
+                        <input class="form-control" type="date" ng-model="newEntry.arrest_date" min="1500-01-01" max="3000-12-31">
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="form-group">
+                        <label>Stop Type</label>
+                        <select class="form-control" ng-options="data.stop_type_id as data.stop_type_name for data in vm.stop_type" ng-model="newEntry.stop_type_id"></select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-2 col-lg-offset-2">
+                    <div class="form-group">
+                        <label>Arrest Time</label>
+                        <input class="form-control" ng-model="newEntry.arrest_time" type="time" placeholder="HH:mm:ss" required="">
+                    </div>
+                </div>
+                <div class="col-sm-2 col-lg-2">
+                    <div class="form-group">
+                        <label>Tests</label>
+                        <select class="form-control" ng-options="data.tests_id as data.tests_name for data in vm.tests_id" ng-model="newEntry.tests_id"></select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3 col-lg-offset-1">
+                    <div class="form-group">
+                        <label>BAC</label>
+                        <input class="form-control" ng-model="newEntry.bac" type="number" min=0.01 step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-2">
+                    <div class="form-group">
+                        <label>Charges</label>
+                        <select class="form-control" ng-options="data.charge_id as data.charge_name for data in vm.charge" ng-model="newEntry.charges_id"></select>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-2 col-lg-offset-1">
+                    <div class="form-group">
+                        <label>Other Crime Codes</label>
+                        <select class="form-control" ng-options="data.crime_code_id as data.crime_code for data in vm.crime_code" ng-model="newEntry.other_crime_codes_id"></select>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Arrest Address</label>
+                        <input type="text" ng-autocomplete ng-model="newEntry.arrest_address" options="options" details="details" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Offender's Destination</label>
+                        <input type="text" ng-autocomplete ng-model="newEntry.offender_destination_address" options="options" details="details" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--     Place of LAST DRINK Panel -->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">POLD | PLACE OF LAST DRINK</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <label>Select Location Type</label>
+                    <div class="input-group">
+                        <select class="form-control" ng-options="data.location_type_id as data.location_type_name for data in vm.location_type" ng-model="newEntry.location_type_id">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <label>Search Location Name</label>
+                    <label>| CA License: {{newEntry.ca_license_id}}</label>
+                    <div class="input-group">
+                        <select class="form-control" ng-options="data.abc_main_id as data.dba for data in vm.ca_license_id" ng-model="newEntry.ca_license_id">
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" ng-model="newEntry.out_of_county" class="custom-control-input">
+                        <span class="custom-control-indicator">Select if venue is outside county</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--IMPAIRMENT PANEL-->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">IMPAIRMENT / ALCOHOL CONSUMED AT (POLD)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        <label>Number of drinks</label>
+                        <input ng-model="newEntry.number_of_drinks" type="number" class="form-control" min=0 />
+                    </div>
+                </div>
+                <div class="col-xs-6 col-lg-3">
+                    <div class="form-group">
+                        <label>Drinks per hour</label>
+                        <input ng-model="newEntry.rate_of_consumption" type="number" class="form-control" min=0 />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        <label>Other Substances</label>
+                        <select ng-options="data.other_substances_id as data.other_substances_name for data in vm.other_substances" ng-model="newEntry.other_substances_id" type="text" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                    <div class="form-group">
+                        <label>Describe if other</label>
+                        <input ng-model="newEntry.describe_substance" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Offender Demographics PANEL-->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">OFFENDER DEMOGRAPHICS</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input class="form-control" ng-model="newEntry.age" type="number" min=0>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select class="form-control" ng-options="data.gender_id as data.gender_name for data in vm.gender" ng-model="newEntry.gender_id"></select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Race / Ethnicity</label>
+                        <select class="form-control" ng-options="data.ethnicity_id as data.ethnicity_name for data in vm.ethnicity" ng-model="newEntry.ethnicity_id"></select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Occupation status</label>
+                        <select class="form-control" ng-options="data.occupation_status_id as data.occupation_status_name for data in vm.occupation_status" ng-model="newEntry.occupation_status_id"></select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Prior DUI History (if any)</label>
+                        <select class="form-control" ng-options="data.prior_dui_history_id as data.prior_dui_history_number for data in vm.prior_dui_history" ng-model="newEntry.prior_dui_history_number"></select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Date of last DUI (if any)</label>
+                        <input class="form-control" type="date" ng-model="newEntry.prior_dui_date" min="1500-01-01" max="3000-12-31">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--VEHICLE CRASH PANEL-->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">VEHICLE CRASH</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label>Driver Vehicle</label>
+                        <select ng-options="driverData.vehicle_type_id as driverData.vehicle_type_name for driverData in vm.vehicle_type" ng-model="newEntry.drivers_vehicle_type_id" type="text" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Injuries</label>
+                        <input class="form-control" ng-model="newEntry.driver_vehicle_adults_injured" placeholder="Adults Injured" min=0 type="number">
+                        <br>
+                        <input class="form-control" ng-model="newEntry.driver_vehicle_under_twenty_one_injury" placeholder="Minors Injured" min=0 type="number">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Deaths</label>
+                        <input class="form-control" ng-model="newEntry.driver_vehicle_adult_deaths" placeholder="Adult Deaths" min=0 type="number">
+                        <br>
+                        <input class="form-control" ng-model="newEntry.driver_vehicle_under_twenty_one_deaths" placeholder="Minor Deaths" min=0 type="number">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <label>Victim's Vehicle (if any)</label>
+                        <select ng-options="victimData.vehicle_type_id as victimData.vehicle_type_name for victimData in vm.vehicle_type" ng-model="newEntry.victims_vehicle_type_id" type="text" class="form-control">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Injuries</label>
+                        <input class="form-control" ng-model="newEntry.victims_vehicle_adults_injured" placeholder="Adults Injured" min=0 type="number">
+                        <br>
+                        <input class="form-control" ng-model="newEntry.victims_vehicle_under_twenty_one_injury" placeholder="Minors Injured" min=0 type="number">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <label>Deaths</label>
+                        <input class="form-control" ng-model="newEntry.victims_vehicle_adult_deaths" placeholder="Adult Deaths" min=0 type="number">
+                        <br>
+                        <input class="form-control" ng-model="newEntry.victims_vehicle_under_twenty_one_deaths" placeholder="Minor Deaths" min=0 type="number">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <form>
+                        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-2">
+                            <div class="form-group">
+                                <label>- Other Circumstances</label>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.hit_run" class="custom-control-input">
+                                <span class="custom-control-indicator">Hit and Run</span>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.peace_officer_victim" class="custom-control-input">
+                                <span class="custom-control-indicator">Peace Officer Victim</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-5">
+                            <div class="form-group">
+                                <label>- Property Damage</label>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.public_safety_vehicle" class="custom-control-input">
+                                <span class="custom-control-indicator">Public Safety Vehicle</span>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.municipal_property" class="custom-control-input">
+                                <span class="custom-control-indicator">Municipal Property</span>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.trees_and_landscape" class="custom-control-input">
+                                <span class="custom-control-indicator">Tree and Landscape</span>
+                                <br>
+                                <input type="checkbox" ng-model="newEntry.building_structure" class="custom-control-input">
+                                <span class="custom-control-indicator">Building Structure</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>Details</label>
+                        <textarea ng-model="newEntry.hit_run_details" class="form-control" rows="1" id="comment"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--OTHER NOTES BOX-->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">OTHER NOTES</h3>
+        </div>
+        <div class="panel-body">
+            <textarea ng-model="newEntry.other_notes" class="form-control" rows="5" id="comment"></textarea>
+        </div>
+    </div>
+</div>
+<div id="button1" class="container">
+    <button id="insidebutton" class="btn btn-primary btn-lg" ng-click="vm.addEntry(newEntry)" type="button" class="btn btn-success">Submit</button>
+</div>
